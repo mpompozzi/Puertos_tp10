@@ -60,7 +60,7 @@ typedef union
         port_t port_b;
     }
     puerto16_t port_d;
-}
+}puertos_t;
 
     return 0;
 }
