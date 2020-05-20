@@ -14,7 +14,13 @@
 #ifndef PORTCONTROL_H
 #define PORTCONTROL_H
 
-
+void bitSet( int , int);
+void bitClr();
+void bitToggle();
+void bitGet();
+void maskOn();
+void maskOff();
+void maskToggle();
 
 #endif /* PORTCONTROL_H */
 
