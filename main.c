@@ -29,7 +29,7 @@ typedef union
         uint8_t portA;
         uint8_t partB;
     }
-    puerto16_t port_d;
+    uint16_t port_d;
     
 }puertos_t;
 
