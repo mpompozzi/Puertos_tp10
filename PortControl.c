@@ -4,3 +4,35 @@
  * and open the template in the editor.
  */
 
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void bitSet (int bit, puertos_t *);
+void bitClr (int bit, puertos_t *);
+void bitGet (int bit, puertos_t *);
+void bitToggle (int bit, puertos_t *);
+void maskOn (int bit, puertos_t *);
+void maskOff (int bit, puertos_t *);
+void maskToggle (int bit, puertos_t *);
+
+typedef union
+{
+    uint16_t portD;
+    struct
+    {
+        uint8_t portA;
+        uint8_t partB;
+    }
+    uint16_t portD;
+    
+}puertos_t;
+
+void bitSet (int bit,char puerto, puertos_t *)
+{
+    if ((puerto== 'd') && (bit>=0) && (bit<=15))
+    {
+        uint16_t mask 0X0001; //??
+        
+    }
+}
