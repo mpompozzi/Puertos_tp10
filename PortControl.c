@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "const.h"
 
 
 /*******************************************************************************
@@ -48,7 +49,7 @@ void bitSet (int bit,char puerto)
     //Verifico que los parametros ingresados sean validos.
     if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15)) 
     {
-        uint16_t mask= 0x0001; //Defino una mascara de 16 bits.
+        uint16_t mask= MASK16 ; //Defino una mascara de 16 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask <<= bit;
         //Asigno la mascara para enceder el bit indicado.
@@ -56,7 +57,7 @@ void bitSet (int bit,char puerto)
     }
     else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 16 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 16 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Asigno la mascara para enceder el bit indicado.
@@ -65,7 +66,7 @@ void bitSet (int bit,char puerto)
     }
     else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 16 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 16 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Asigno la mascara para enceder el bit indicado.
@@ -81,7 +82,7 @@ void bitClr (int bit, char puerto)
 {
     if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15))
     {
-        uint16_t mask= 0x0001;//Defino una mascara de 16 bits. 
+        uint16_t mask= MASK16;//Defino una mascara de 16 bits. 
         //Modifico la mascara para poder encerder el bit indicado.
         mask <<= bit;
         //Asigno la mascara para apagar el bit indicado.
@@ -89,7 +90,7 @@ void bitClr (int bit, char puerto)
     }
     else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 16 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 16 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Asigno la mascara para apagar el bit indicado.
@@ -98,7 +99,7 @@ void bitClr (int bit, char puerto)
     }
     else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 16 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 16 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Asigno la mascara para apagar el bit indicado.
@@ -112,11 +113,11 @@ void bitClr (int bit, char puerto)
 
 int bitGet (int bit, char puerto)
 {
-    int estado=-1;//Inicializo en 
+    int estado=ERROR;//Inicializo en 
     
     if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15))
     {
-        uint16_t mask= 0x0001;//Defino una mascara de 16 bits. 
+        uint16_t mask= MASK16;//Defino una mascara de 16 bits. 
         //Modifico la mascara para poder encerder el bit indicado.
         mask <<= bit;
         //Verifico el estado actual del bit solicitado.
@@ -131,7 +132,7 @@ int bitGet (int bit, char puerto)
     }
     else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 8 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 8 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Verifico el estado actual del bit solicitado.
@@ -147,7 +148,7 @@ int bitGet (int bit, char puerto)
     }
     else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 8 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 8 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Verifico el estado actual del bit solicitado.
@@ -171,7 +172,7 @@ void bitToggle (int bit, char puerto)
 {
     if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15))
     {
-        uint16_t mask= 0x0001;//Defino una mascara de 16 bits.
+        uint16_t mask= MASK16;//Defino una mascara de 16 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask <<= bit;
         //Asigno la mascara modificando el bit solicitado a su estado opuesto.
@@ -179,7 +180,7 @@ void bitToggle (int bit, char puerto)
     }
     else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 8 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 8 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Asigno la mascara modificando el bit solicitado a su estado opuesto.
@@ -188,7 +189,7 @@ void bitToggle (int bit, char puerto)
     }
     else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
     {
-        uint8_t mask= 0x01;//Defino una mascara de 8 bits.
+        uint8_t mask= MASK8;//Defino una mascara de 8 bits.
         //Modifico la mascara para poder encerder el bit indicado.
         mask<<= bit;
         //Asigno la mascara modificando el bit solicitado a su estado opuesto.
