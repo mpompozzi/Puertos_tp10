@@ -81,7 +81,53 @@ void bitClr (int bit, char puerto)
 
 int bitGet (int bit, char puerto)
 {
+    int estado=-1;
     
+    if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15))
+    {
+        uint16_t mask= 0x0001; 
+        mask <<= bit;
+        if (port.D &= mask)
+        {
+            estado=1;
+        }
+        else 
+        {
+            estado=0;
+        }
+    }
+    else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
+    {
+        uint8_t mask= 0x01;
+        mask<<= bit;
+        if(port.B &= mask)
+        {
+            estado=1;
+        }
+        else
+        {
+            estado=0;
+        }
+        
+    }
+    else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
+    {
+        uint8_t mask= 0x01;
+        mask<<= bit;
+        if(port.A &= mask)
+        {
+            estado=1;
+        }
+        else
+        {
+            estado=0;
+        }  
+    }
+    else
+    {
+        printf("Datos mal ingresados\n");
+    }
+    return estado;
 }
 
 void bitToggle (int bit, char puerto)
