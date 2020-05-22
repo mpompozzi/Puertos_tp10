@@ -21,7 +21,12 @@
  */
 int main(void) 
 {
-    return 0;
+    bitSet(2,'a');
+    bitClr(2,'a');
+    bitSet(4,'a');
+    bitSet(2,'b');
+    bitSet(2,'d');
+    return (0);
 }
 
 

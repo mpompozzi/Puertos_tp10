@@ -72,7 +72,7 @@ void maskOn ( int mask, char puerto);
  * Salida:
  * 
  ******************************************************************************/
-void maskOff (int mask,char puerto);
+void maskOff (int mask, char puerto);
 
 /*******************************************************************************
  * Función: maskToggle
