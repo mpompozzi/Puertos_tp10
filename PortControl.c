@@ -87,7 +87,7 @@ int bitGet (int bit, char puerto)
     {
         uint16_t mask= 0x0001; 
         mask <<= bit;
-        if (port.D &= mask)
+        if ((port.D) &= mask)
         {
             estado=1;
         }
@@ -100,7 +100,7 @@ int bitGet (int bit, char puerto)
     {
         uint8_t mask= 0x01;
         mask<<= bit;
-        if(port.B &= mask)
+        if((port.B) &= mask)
         {
             estado=1;
         }
