@@ -160,15 +160,15 @@ void maskOn (int mask, char puerto)
 {
     if((puerto=='d')||(puerto == 'D'))
     {
-        port.D |= mask; 
+        port.D |= (uint16_t)mask; 
     }
     else if((puerto=='a')||(puerto=='A'))
     {
-        port.A |=mask;
+        port.A |= (uint8_t) mask;
     }
     else if ((puerto=='b')||(puerto=='B'))
     {
-        port.B |=mask;
+        port.B |= (uint8_t) mask;
     }
     else 
     {
@@ -179,15 +179,15 @@ void maskOff (int mask, char puerto)
 {
     if((puerto=='d')||(puerto == 'D'))
     {
-        port.D &= mask; 
+        port.D &=(uint16_t) mask; 
     }
     else if((puerto=='a')||(puerto=='A'))
     {
-        port.A &=mask;
+        port.A &=(uint8_t) mask;
     }
     else if ((puerto=='b')||(puerto=='B'))
     {
-        port.B &&=mask;
+        port.B &= (uint8_t) mask;
     }
     else 
     {
@@ -198,15 +198,15 @@ void maskToggle (int mask, char puerto)
 {
     if((puerto=='d')||(puerto == 'D'))
     {
-        port.D ^= mask; 
+        port.D ^= (uint16_t)mask; 
     }
     else if((puerto=='a')||(puerto=='A'))
     {
-        port.A ^=mask;
+        port.A ^=(uint8_t) mask;
     }
     else if ((puerto=='b')||(puerto=='B'))
     {
-        port.B ^=mask;
+        port.B ^=(uint8_t) mask;
     }
     else 
     {
