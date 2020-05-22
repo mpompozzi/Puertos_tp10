@@ -158,7 +158,22 @@ void bitToggle (int bit, char puerto)
 }
 void maskOn (int mask, char puerto)
 {
-    
+    if((puerto=='d')||(puerto == 'D'))
+    {
+        port.D ||= mask; 
+    }
+    else if((puerto=='a')||(puerto=='A'))
+    {
+        port.A ||=mask;
+    }
+    else if ((puerto=='b')||(puerto=='B'))
+    {
+        port.B ||=mask;
+    }
+    else 
+    {
+        printf("Datos mal ingresados\n");
+    } 
 }
 void maskOff (int mask, char puerto)
 {
