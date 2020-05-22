@@ -20,22 +20,6 @@
  */
 int main(void) 
 {
-
-typedef union
-{
-    uint16_t portD;
-    struct
-    {
-        uint8_t portA;
-        uint8_t partB;
-    }
-    uint16_t port_d;
-    
-}puertos_t;
-
-puertos_t puerto16;
-
-
     return 0;
 }
 

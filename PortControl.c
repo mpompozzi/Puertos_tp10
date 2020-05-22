@@ -8,47 +8,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void bitSet (int bit, char puerto, puertos_t *);
-void bitClr (int bit, char puerto, puertos_t *);
-void bitGet (int bit, char puerto, puertos_t *);
-void bitToggle (int bit, char puerto, puertos_t *);
-void maskOn (int bit, char puerto, puertos_t *);
-void maskOff (int bit, char puerto, puertos_t *);
-void maskToggle (int bit, char puerto, puertos_t *);
+
 
 typedef union
 {
-    uint16_t portD;
+    uint16_t D;
     struct
     {
-        uint8_t portA;
-        uint8_t partB;
-    }
-    uint16_t portD;
+        uint8_t B;
+        uint8_t A;
+    };
     
-}puertos_t;
+    
+}puerto_t;
+
+static puerto_t port;
 
 
-void bitSet (int bit,char puerto, puertos_t *)
+void bitSet (int bit,char puerto)
 {
-    if ((puerto== 'd') && (bit>=0) && (bit<=15))
+    if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15))
     {
         uint16_t mask= 0x0001; 
         mask <<= bit;
-        *(puertos_t.portD) |= mask;
+        port.D |= mask;
     }
-    else if ((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='b')))
+    else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
     {
         uint8_t mask= 0x01;
         mask<<= bit;
-        if (puerto=='a')
-        {
-            *(puertos_t.portA) |= mask;
-        }
-        else
-        {
-            *(puertos_t.portB) |= mask;
-        }
+        port.B |= mask;
+        
+    }
+    else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
+    {
+        uint8_t mask= 0x01;
+        mask<<= bit;
+        port.A |= mask;
     }
     else
     {
@@ -56,28 +52,26 @@ void bitSet (int bit,char puerto, puertos_t *)
     }
 }
 
-void bitClr (int bit, char puerto, puertos_t *)
+void bitClr (int bit, char puerto)
 {
-   
-    if ((puerto== 'd') && (bit>=0) && (bit<=15))
+    if (((puerto== 'd')||(puerto=='D')) && (bit>=0) && (bit<=15))
     {
         uint16_t mask= 0x0001; 
         mask <<= bit;
-        mask ~= mask;
-        puertos_t.portD &= mask;
+        port.D &= ~mask;
     }
-    else if ((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='b')))
+    else if ((bit>=0) && (bit<=7) && ((puerto=='b')||(puerto=='B')))
     {
         uint8_t mask= 0x01;
         mask<<= bit;
-        if (puerto=='a')
-        {
-            *(puertos_t.portA) |= mask;
-        }
-        else
-        {
-            *(puertos_t.portB) |= mask;
-        }
+        port.B &= ~mask;
+        
+    }
+    else if((bit>=0) && (bit<=7) && ((puerto=='a')||(puerto=='A')))
+    {
+        uint8_t mask= 0x01;
+        mask<<= bit;
+        port.A &= ~mask;
     }
     else
     {
@@ -85,12 +79,24 @@ void bitClr (int bit, char puerto, puertos_t *)
     }
 }
 
-void bitGet (int bit, char puerto, puertos_t *)
+int bitGet (int bit, char puerto)
 {
     
 }
 
-void bitToggle (int bit, char puerto, puertos_t *);
-void maskOn (int bit, char puerto, puertos_t *);
-void maskOff (int bit, char puerto, puertos_t *);
-void maskToggle (int bit, char puerto, puertos_t *);
+void bitToggle (int bit, char puerto)
+{
+    
+}
+void maskOn (int bit, char puerto)
+{
+    
+}
+void maskOff (int bit, char puerto)
+{
+    
+}
+void maskToggle (int bit, char puerto)
+{
+    
+}
