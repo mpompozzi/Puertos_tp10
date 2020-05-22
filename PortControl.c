@@ -21,8 +21,8 @@ typedef union
     {
         //El order de declaracion esta dado por el Enddian (Little Enddia).
         
-        uint8_t B;  //Declaro puerto B de 8 bits
-        uint8_t A;  //Declaro puerto A de 8 bits
+        uint8_t B;  //Declaro puerto B de 8 bits.
+        uint8_t A;  //Declaro puerto A de 8 bits.
     };
     
     
