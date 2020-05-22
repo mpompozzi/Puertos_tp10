@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include "PortControl.h"
 
+#define TESTS
 /*
  * Simple C Test Suite
  */

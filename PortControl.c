@@ -32,8 +32,12 @@ typedef union
 /*******************************************************************************
  * VARIABLES.
  ******************************************************************************/
-static puerto_t port;   //Defino una variable de tipo puerto, estatica para que
-                        //solo pueda ser accedida por las funciones.
+//Tests
+#ifdef TESTS
+puerto_t port;
+#else
+static puerto_t port;  
+#endif                   
 
 /*******************************************************************************
  * FUNCIONES GLOBALES.
