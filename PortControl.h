@@ -15,6 +15,21 @@
 #define PORTCONTROL_H
 
 #include <stdint.h>
+
+#if TEST
+
+int bitSet (int bit, char puerto);
+int bitClr (int bit, char puerto);
+int  bitGet (int bit, char puerto);
+int bitToggle (int bit, char puerto);
+int maskOn ( int mask, char puerto);
+int maskOff (int mask, char puerto);
+int maskToggle (int mask, char puerto);
+
+//Todas devuelven enteros para pruebas.
+
+#else
+
 /*******************************************************************************
  * Función: bitSet
  * Descripcción: Función que dado un bit especifico  el puerto de dicho bit 
@@ -84,6 +99,7 @@ void maskOff (int mask, char puerto);
  ******************************************************************************/
 void maskToggle (int mask, char puerto);
 
+#endif	//test
 
 #endif /* PORTCONTROL_H */
 
